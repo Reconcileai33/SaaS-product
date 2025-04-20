@@ -1,0 +1,96 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+  }
+}
+
+/* CRED-style animations */
+@layer utilities {
+  .animate-pulse-slow {
+    animation: pulse 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-pulse-slow-2 {
+    animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-pulse-slow-3 {
+    animation: pulse 10s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .animate-float-2 {
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  /* CRED-style hover effects */
+  .neopop-button {
+    @apply relative overflow-hidden transition-all duration-200 transform hover:-translate-y-1 active:translate-y-0;
+  }
+  
+  .neopop-button::before {
+    @apply content-[''] absolute inset-0 bg-white opacity-0 transition-opacity duration-200;
+  }
+  
+  .neopop-button:hover::before {
+    @apply opacity-10;
+  }
+  
+  .neopop-button:active::before {
+    @apply opacity-20;
+  }
+  
+  /* Global button style for consistency */
+  .btn-primary {
+    @apply bg-gradient-to-r from-amber-500 to-yellow-400 hover:from-amber-600 hover:to-yellow-500 text-black font-semibold shadow-[0_4px_0px_0px_#78350f] hover:shadow-[0_2px_0px_0px_#78350f] hover:translate-y-[2px] transition-all duration-200 neopop-button;
+  }
+  
+  .btn-outline {
+    @apply border-amber-500/50 text-amber-400 hover:bg-amber-500/10 hover:text-amber-300 transition-all duration-300;
+  }
+  
+  .neopop-card {
+    @apply bg-gray-900/50 backdrop-blur-sm border border-gray-800 transition-all duration-300 hover:border-amber-500/30 hover:shadow-[0_0_15px_rgba(251,191,36,0.2)];
+  }
+  
+  .neopop-glow {
+    @apply relative;
+  }
+  
+  .neopop-glow::after {
+    @apply content-[''] absolute -inset-[1px] rounded-lg bg-gradient-to-r from-amber-400/20 via-yellow-300/20 to-amber-400/20 opacity-0 transition-opacity duration-300 -z-10 blur-[2px];
+  }
+  
+  .neopop-glow:hover::after {
+    @apply opacity-100;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+}
