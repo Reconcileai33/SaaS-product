@@ -20,25 +20,14 @@ import Contact from "@/pages/contact";
 import { useEffect } from "react";
 
 function App() {
-  // For demo purposes, let's create a simulated login functionality
-  // In a real app, this would be handled by a proper auth flow
+  const [location] = useLocation();
+  
   useEffect(() => {
-    // This is just for demo purposes, to simulate the protected route behavior
-    const handleAuth = () => {
-      const urlParams = new URLSearchParams(window.location.search);
-      const action = urlParams.get('action');
-      
-      if (action === 'login') {
-        localStorage.setItem('authenticated', 'true');
-        window.location.href = '/dashboard';
-      } else if (action === 'logout') {
-        localStorage.removeItem('authenticated');
-        window.location.href = '/';
-      }
-    };
-    
-    handleAuth();
-  }, []);
+    // If user is on root path and authenticated, redirect to dashboard
+    if (location === "/" && localStorage.getItem("authenticated") === "true") {
+      window.location.href = "/dashboard";
+    }
+  }, [location]);
 
   return (
     <>

@@ -1,4 +1,5 @@
-import { ReactNode, useEffect } from "react";
+
+import { ReactNode } from "react";
 import Sidebar from "./Sidebar";
 
 interface LayoutProps {
@@ -6,11 +7,6 @@ interface LayoutProps {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  useEffect(() => {
-    if (!localStorage.getItem("authenticated")) {
-      window.location.href = '/auth';
-    }
-  }, []);
   return (
     <div className="flex h-screen overflow-hidden">
       <Sidebar />
