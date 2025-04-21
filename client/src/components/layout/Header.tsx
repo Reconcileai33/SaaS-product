@@ -63,7 +63,7 @@ const Header = () => {
           {/* Freecharge-inspired Logo */}
           <Link href="/" className="flex items-center group">
             <motion.div 
-              className="w-12 h-12 mr-2"
+              className="w-10 h-10 rounded-lg bg-gradient-to-r from-amber-500 to-yellow-400 p-[2px] mr-2 shadow-[0_0_10px_rgba(251,191,36,0.5)]"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               animate={{ 
@@ -76,11 +76,9 @@ const Header = () => {
                 ease: "easeInOut"
               }}
             >
-              <img 
-                src="/attached_assets/Reconcile dashboard 1.PNG" 
-                alt="Reconcile AI" 
-                className="w-full h-full object-contain rounded-lg"
-              />
+              <div className="w-full h-full rounded-lg bg-black flex items-center justify-center">
+                <span className="text-xl font-bold text-amber-400">R</span>
+              </div>
             </motion.div>
             <motion.div 
               initial={{ opacity: 0, x: -10 }}
