@@ -96,7 +96,7 @@ const Header = () => {
           {/* CTA */}
           <div className="hidden md:block">
             {!isAuthPage && (
-              {isAuthPage ? null : localStorage.getItem("authenticated") ? (
+              localStorage.getItem("authenticated") ? (
                 <Button 
                   className="btn-primary"
                   onClick={() => {
@@ -112,7 +112,7 @@ const Header = () => {
                     Login
                   </Button>
                 </Link>
-              )}
+              )
             )}
           </div>
           

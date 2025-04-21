@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect } from "react";
 import Sidebar from "./Sidebar";
 
 interface LayoutProps {
