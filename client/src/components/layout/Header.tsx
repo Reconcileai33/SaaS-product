@@ -101,10 +101,7 @@ const Header = () => {
                   className="btn-primary"
                   onClick={() => {
                     localStorage.removeItem("authenticated");
-                    window.location.href = '/';
-                  }}
-                  onClick={() => {
-                    localStorage.removeItem("authenticated");
+                    localStorage.removeItem("userType");
                     window.location.href = '/';
                   }}
                 >
