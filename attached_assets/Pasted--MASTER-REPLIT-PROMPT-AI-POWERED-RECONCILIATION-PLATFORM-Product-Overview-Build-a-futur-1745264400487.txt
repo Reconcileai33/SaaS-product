@@ -1,0 +1,84 @@
+**MASTER REPLIT PROMPT: AI-POWERED RECONCILIATION PLATFORM**
+
+### Product Overview:
+Build a futuristic, AI-driven reconciliation SaaS platform that acts as a third-party facilitator for businesses and individuals to instantly reconcile payments across banks, payment processors, and marketplaces. This platform will use advanced AI modules to smart-route transactions, support SSO-based bank connections, and provide dynamic B2B and B2C dashboards.
+
+---
+
+### Core Modules:
+1. **Frontend (UI/UX)**
+   - NeoPop-style UI inspired by CRED (animations, buttons, icons)
+   - Responsive, futuristic design
+   - Refined transitions and dynamic interactions
+   - Two primary login dashboards:
+     - **Business Dashboard**: For startups, enterprises, and global brands
+     - **Individual Dashboard**: For users reconciling payments across marketplaces and banks
+   - **Admin Dashboard**: Super-admin panel to control, monitor, and manage everything
+
+2. **Backend Services**
+   - User auth + roles (admin, business, individual)
+   - Bank + Payment Gateway Integrations via API (start with RazorpayX, RBL, Castler if needed)
+   - Smart AI Reconciliation Module:
+     - Detect missing payments, late settlements
+     - Route transactions via bank APIs
+     - Auto-match against order data and platform logs
+     - Notify users via email/SMS/webhooks
+   - Escrow API logic integration (RazorpayX or others)
+   - Real-time transaction monitoring and status updates
+   - Modular API-based architecture
+
+3. **AI Modules**
+   - Predictive analytics for expected settlement times
+   - Intelligent matching algorithms (ML-based)
+   - User support chatbot for dispute resolution and reconciliation flow assistance
+   - Smart routing engine to optimize transaction paths
+
+4. **Database Schemas**
+   - Dynamic schema generation for each new user/company
+   - Support for high concurrency and real-time syncing
+   - Include user-level, transaction-level, gateway-level data stores
+
+5. **Pricing Logic**
+   - ₹5 per ₹1,000 transaction volume (usage-based pricing)
+   - Optional monthly/yearly plans with usage credits
+   - Dynamic pricing display based on user's country, volume, or integration complexity
+
+6. **Admin Panel Features**
+   - Analytics Dashboard (User stats, volume metrics, disputes, delays, etc.)
+   - Dynamic Feature Control (Enable/disable AI modules per plan/user)
+   - Bank integration manager
+   - Licensing + NDA document control
+   - Audit trail + Logs
+
+---
+
+### AI Assistant Code of Conduct (Strict Rules):
+1. **Follow User's Instructions Verbatim**: Do not make assumptions or autonomous decisions. Only proceed with actions that are explicitly requested.
+2. **No Unapproved Checkpoints**: Checkpoints or partial updates may only be created once the entire product (frontend, backend, schema, APIs, UI, UX, AI logic, dashboards) has been executed.
+3. **Do Not Modify Existing Architecture**: Unless explicitly instructed, do not alter the provided code structure.
+4. **Clarify Before Executing**: If anything in the prompt is ambiguous or has missing details, stop and request user clarification.
+5. **UI/UX Must Use NeoPop Theme**: No deviation from animated, futuristic design using CRED-style NeoPop components.
+6. **Dashboards Must Be Modular**: Ensure login-based, role-specific access and do not hardcode dashboard logic.
+7. **Reconciliation Logic Must Be Instant**: Optimize AI modules and APIs for real-time or near real-time performance.
+
+---
+
+### Execution Priority:
+1. Backend architecture and schema
+2. Frontend dashboards
+3. API integrations and services
+4. AI module logic
+5. Admin dashboard
+6. Deployment and logging
+
+---
+
+### Final Delivery:
+Once everything is built:
+- Make a single checkpoint confirming **completion of entire product stack**
+- Summarize features included
+- Ask for user review and feedback before deploying
+
+---
+
+Now, begin executing this prompt in Replit or the assigned AI coding assistant environment. Do not stop or deviate until full execution is complete.
