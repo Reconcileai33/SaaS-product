@@ -103,6 +103,10 @@ const Header = () => {
                     localStorage.removeItem("authenticated");
                     window.location.href = '/';
                   }}
+                  onClick={() => {
+                    localStorage.removeItem("authenticated");
+                    window.location.href = '/';
+                  }}
                 >
                   Logout
                 </Button>

@@ -8,7 +8,7 @@ interface LayoutProps {
 const Layout = ({ children }: LayoutProps) => {
   useEffect(() => {
     if (!localStorage.getItem("authenticated")) {
-      window.location.href = '/auth';
+      window.location.href = '/';
     }
   }, []);
   return (
