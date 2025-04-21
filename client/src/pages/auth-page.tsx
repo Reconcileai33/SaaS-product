@@ -135,19 +135,12 @@ export default function AuthPage() {
   const Logo = () => (
     <div className="flex flex-col items-center mb-8">
       <motion.div 
-        className="w-16 h-16 rounded-full bg-gradient-to-r from-amber-500 to-yellow-300 p-[3px] mb-4"
-        animate={{ 
-          boxShadow: ["0 0 10px rgba(251, 191, 36, 0.5)", "0 0 20px rgba(251, 191, 36, 0.5)", "0 0 10px rgba(251, 191, 36, 0.5)"]
-        }}
-        transition={{ 
-          duration: 2, 
-          repeat: Infinity,
-          ease: "easeInOut" 
-        }}
+        className="w-24 h-24 mb-4"
+        initial={{ scale: 0.9, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5 }}
       >
-        <div className="w-full h-full rounded-full bg-slate-900 flex items-center justify-center">
-          <Sparkles className="h-7 w-7 text-amber-400" />
-        </div>
+        <img src="/attached_assets/Reconcile dashboard 1.PNG" alt="Reconcile AI Logo" className="w-full h-full object-contain" />
       </motion.div>
       <h1 className="text-2xl font-bold text-white">Reconcile AI</h1>
       <motion.p 

@@ -14,9 +14,10 @@ export function ProtectedRoute({ path, children }: ProtectedRouteProps) {
 
   useEffect(() => {
     if (!isAuthenticated) {
+      localStorage.removeItem("authenticated");
       setLocation("/auth");
     }
-  }, [isAuthenticated, setLocation]);
+  }, [isAuthenticated, path, setLocation]);
 
   if (!isAuthenticated) {
     return null;

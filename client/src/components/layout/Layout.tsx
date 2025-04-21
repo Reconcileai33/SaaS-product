@@ -17,10 +17,12 @@ const Layout = ({ children }: LayoutProps) => {
   }
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex h-screen overflow-hidden bg-black">
       <Sidebar />
-      <main className="flex-1 overflow-y-auto bg-black">
-        {children}
+      <main className="flex-1 overflow-y-auto">
+        <div className="container mx-auto p-4 animate-fadeIn">
+          {children}
+        </div>
       </main>
     </div>
   );
