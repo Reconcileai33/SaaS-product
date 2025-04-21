@@ -51,11 +51,6 @@ export default function Home() {
         className="relative pt-32 pb-24 overflow-hidden"
         style={{ opacity: heroOpacity, scale: heroScale }}
       >
-        {/* CRED-style glowing orbs */}
-        <div className="absolute top-0 left-1/3 w-96 h-96 bg-amber-500/30 rounded-full filter blur-[100px] opacity-30 animate-pulse-slow"></div>
-        <div className="absolute bottom-0 right-1/3 w-96 h-96 bg-yellow-600/30 rounded-full filter blur-[100px] opacity-30 animate-pulse-slow-2"></div>
-        <div className="absolute top-1/2 right-1/4 w-64 h-64 bg-amber-300/20 rounded-full filter blur-[80px] opacity-20 animate-pulse-slow-3"></div>
-        
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
             <motion.div 
@@ -107,17 +102,14 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              {/* Dashboard preview with glow effect */}
-              <div className="rounded-lg overflow-hidden relative bg-gray-900/50 backdrop-blur-sm border border-gray-800 shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-red-500/10 opacity-30"></div>
+              {/* Dashboard preview */}
+              <div className="rounded-lg overflow-hidden relative border border-gray-800 shadow-2xl">
                 <img 
                   src="/attached_assets/Reconcile dashboard 1.PNG" 
-                  alt="PaySync Dashboard" 
+                  alt="Reconcile Dashboard" 
                   className="w-full h-auto rounded-lg object-cover"
                 />
               </div>
-              {/* Glow effect */}
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/20 via-pink-500/20 to-red-500/20 filter blur-3xl opacity-30 -z-10"></div>
             </motion.div>
           </div>
         </div>
