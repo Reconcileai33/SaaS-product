@@ -49,3 +49,16 @@ mode = "sequential"
 [[workflows.workflow.tasks]]
 task = "shell.exec"
 args = "NODE_ENV=production tsx server/workers/ai-processor.ts"
+
+[[workflows.workflow]]
+name = "Start AI Workers"
+author = 41660215
+mode = "parallel"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "NODE_ENV=production tsx server/workers/ai-processor.ts"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "NODE_ENV=production tsx server/workers/transaction-monitor.ts"
