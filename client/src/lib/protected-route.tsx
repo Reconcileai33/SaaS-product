@@ -15,20 +15,9 @@ export function ProtectedRoute({ path, children }: ProtectedRouteProps) {
   useEffect(() => {
     if (!isAuthenticated) {
       localStorage.removeItem("authenticated");
-      localStorage.removeItem("userType");
-      setLocation("/");
+      setLocation("/auth");
     }
   }, [isAuthenticated, path, setLocation]);
-
-  useEffect(() => {
-    const handleNavigation = () => {
-      if (path === '/') {
-        setLocation('/auth');
-      }
-    };
-
-    handleNavigation();
-  }, [path, setLocation]);
 
   if (!isAuthenticated) {
     return null;

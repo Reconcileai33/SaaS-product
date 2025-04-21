@@ -61,20 +61,11 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Freecharge-inspired Logo */}
-          <Link href="/" className="flex items-center group">
+          <Link href="/" className="flex items-center">
             <motion.div 
               className="w-10 h-10 rounded-lg bg-gradient-to-r from-amber-500 to-yellow-400 p-[2px] mr-2 shadow-[0_0_10px_rgba(251,191,36,0.5)]"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, rotate: 5 }}
               whileTap={{ scale: 0.95 }}
-              animate={{ 
-                rotate: [0, 5, 0],
-                scale: [1, 1.02, 1]
-              }}
-              transition={{ 
-                duration: 3,
-                repeat: Infinity,
-                ease: "easeInOut"
-              }}
             >
               <div className="w-full h-full rounded-lg bg-black flex items-center justify-center">
                 <span className="text-xl font-bold text-amber-400">R</span>
@@ -84,7 +75,7 @@ const Header = () => {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-col leading-tight group-hover:scale-105 transition-transform"
+              className="flex flex-col leading-tight"
             >
               <span className="text-xl font-bold bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 text-transparent bg-clip-text">
                 Reconcile
