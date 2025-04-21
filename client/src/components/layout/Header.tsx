@@ -96,11 +96,23 @@ const Header = () => {
           {/* CTA */}
           <div className="hidden md:block">
             {!isAuthPage && (
-              <Link href="/auth">
-                <Button className="btn-primary">
-                  Login
+              {isAuthPage ? null : localStorage.getItem("authenticated") ? (
+                <Button 
+                  className="btn-primary"
+                  onClick={() => {
+                    localStorage.removeItem("authenticated");
+                    window.location.href = '/';
+                  }}
+                >
+                  Logout
                 </Button>
-              </Link>
+              ) : (
+                <Link href="/auth">
+                  <Button className="btn-primary">
+                    Login
+                  </Button>
+                </Link>
+              )}
             )}
           </div>
           

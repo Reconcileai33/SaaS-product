@@ -19,7 +19,7 @@ export const pageAnimations = {
       }
     }
   },
-  
+
   // For individual items in a staggered container
   item: {
     hidden: { opacity: 0, y: 20 },
@@ -40,7 +40,7 @@ export const pageAnimations = {
       }
     }
   },
-  
+
   // For cards that appear with a scale effect
   card: {
     hidden: { opacity: 0, scale: 0.95 },
@@ -63,7 +63,7 @@ export const pageAnimations = {
       }
     }
   },
-  
+
   // For elements that fade in from the left
   fadeInLeft: {
     hidden: { opacity: 0, x: -20 },
@@ -77,7 +77,7 @@ export const pageAnimations = {
       }
     }
   },
-  
+
   // For elements that fade in from the right
   fadeInRight: {
     hidden: { opacity: 0, x: 20 },
@@ -91,7 +91,7 @@ export const pageAnimations = {
       }
     }
   },
-  
+
   // For elements that fade in from the bottom
   fadeInUp: {
     hidden: { opacity: 0, y: 20 },
@@ -105,7 +105,7 @@ export const pageAnimations = {
       }
     }
   },
-  
+
   // For buttons and interactive elements
   button: {
     hover: {
@@ -125,7 +125,7 @@ export const pageAnimations = {
       }
     }
   },
-  
+
   // For glowing elements
   glow: {
     initial: { 
@@ -148,11 +148,20 @@ export const pageAnimations = {
 
 // Common page variants used across all main pages
 export const pageContainerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
     transition: {
-      staggerChildren: 0.1
+      duration: 0.4,
+      ease: "easeOut"
+    }
+  },
+  exit: {
+    opacity: 0,
+    y: -20,
+    transition: {
+      duration: 0.2
     }
   }
 };
