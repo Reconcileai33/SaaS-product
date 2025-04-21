@@ -1,3 +1,4 @@
+
 import { Route, useLocation } from "wouter";
 import { ReactNode, useEffect } from "react";
 import Layout from "@/components/layout/Layout";
@@ -17,11 +18,13 @@ export function ProtectedRoute({ path, children }: ProtectedRouteProps) {
     }
   }, [isAuthenticated, setLocation]);
 
+  if (!isAuthenticated) {
+    return null;
+  }
+
   return (
     <Route path={path}>
-      {isAuthenticated ? (
-        <Layout>{children}</Layout>
-      ) : null}
+      <Layout>{children}</Layout>
     </Route>
   );
 }
@@ -35,6 +38,10 @@ export function PublicOnlyRoute({ path, children }: ProtectedRouteProps) {
       setLocation("/dashboard");
     }
   }, [isAuthenticated, path, setLocation]);
+
+  if (isAuthenticated && path === "/auth") {
+    return null;
+  }
 
   return <Route path={path}>{children}</Route>;
 }

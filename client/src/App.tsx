@@ -1,4 +1,5 @@
-import { Route, Switch } from "wouter";
+
+import { Route, Switch, useLocation } from "wouter";
 import { Toaster } from "@/components/ui/toaster";
 import { ProtectedRoute, PublicOnlyRoute } from "@/lib/protected-route";
 import Dashboard from "@/pages/dashboard";
@@ -17,25 +18,17 @@ import Pricing from "@/pages/pricing";
 import Features from "@/pages/features";
 import About from "@/pages/about";
 import Contact from "@/pages/contact";
-import { useEffect } from "react";
 
 function App() {
   const [location] = useLocation();
   
-  useEffect(() => {
-    // If user is on root path and authenticated, redirect to dashboard
-    if (location === "/" && localStorage.getItem("authenticated") === "true") {
-      window.location.href = "/dashboard";
-    }
-  }, [location]);
-
   return (
     <>
       <Switch>
         {/* Public pages that don't require authentication */}
-        <PublicOnlyRoute path="/">
+        <Route path="/">
           <Home />
-        </PublicOnlyRoute>
+        </Route>
         <PublicOnlyRoute path="/auth">
           <AuthPage />
         </PublicOnlyRoute>
