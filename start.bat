@@ -1,0 +1,3 @@
+@echo off
+echo Starting AI Reconciliation Platform...
+npm run dev:windows

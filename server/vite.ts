@@ -23,7 +23,6 @@ export async function setupVite(app: Express, server: Server) {
   const serverOptions = {
     middlewareMode: true,
     hmr: { server },
-    allowedHosts: true,
   };
 
   const vite = await createViteServer({
@@ -46,10 +45,9 @@ export async function setupVite(app: Express, server: Server) {
 
     try {
       const clientTemplate = path.resolve(
-        import.meta.dirname,
-        "..",
+        process.cwd(),
         "client",
-        "index.html",
+        "index.html"
       );
 
       // always reload the index.html file from disk incase it changes
@@ -68,18 +66,28 @@ export async function setupVite(app: Express, server: Server) {
 }
 
 export function serveStatic(app: Express) {
-  const distPath = path.resolve(import.meta.dirname, "public");
+  const distPath = path.resolve(process.cwd(), "dist", "public");
 
   if (!fs.existsSync(distPath)) {
-    throw new Error(
-      `Could not find the build directory: ${distPath}, make sure to build the client first`,
+    console.warn(
+      `Warning: Could not find the build directory: ${distPath}. Running in development mode without static files.`,
     );
+    // In development mode, we'll just return a simple message for non-API routes
+    app.get("*", (req, res, next) => {
+      if (req.path.startsWith("/api")) {
+        return next();
+      }
+      res.send(`<html><body>
+        <h1>AI Reconciliation Platform</h1>
+        <p>Server is running in development mode. Client build not found.</p>
+        <p>API endpoints are available at /api/*</p>
+      </body></html>`);
+    });
+    return;
   }
 
-  app.use(express.static(distPath));
-
-  // fall through to index.html if the file doesn't exist
-  app.use("*", (_req, res) => {
-    res.sendFile(path.resolve(distPath, "index.html"));
+  app.use(express.static(distPath, { index: false }));
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(distPath, "index.html"));
   });
 }

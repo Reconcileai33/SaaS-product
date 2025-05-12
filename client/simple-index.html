@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ReconcileAI - Financial Reconciliation Platform</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --font-sans: 'Inter', sans-serif;
+        --background: 222.2 84% 4.9%;
+        --foreground: 210 40% 98%;
+        --card: 217.2 32.6% 17.5%;
+        --card-foreground: 210 40% 98%;
+        --popover: 222.2 84% 4.9%;
+        --popover-foreground: 210 40% 98%;
+        --primary: 217.2 91.2% 59.8%;
+        --primary-foreground: 222.2 47.4% 11.2%;
+        --secondary: 267.1 83.3% 60.9%;
+        --secondary-foreground: 210 40% 98%;
+        --muted: 217.2 32.6% 17.5%;
+        --muted-foreground: 215 20.2% 65.1%;
+        --accent: 217.2 32.6% 17.5%;
+        --accent-foreground: 210 40% 98%;
+        --destructive: 0 62.8% 30.6%;
+        --destructive-foreground: 210 40% 98%;
+        --border: 217.2 32.6% 17.5%;
+        --input: 217.2 32.6% 17.5%;
+        --ring: 224.3 76.3% 48%;
+      }
+      
+      body {
+        background-color: hsl(var(--background));
+        color: hsl(var(--foreground));
+        font-feature-settings: "rlig" 1,"calt" 1;
+        font-family: var(--font-sans);
+        line-height: 1.6;
+        margin: 0;
+        padding: 20px;
+      }
+      
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: hsl(var(--primary));
+      }
+      
+      .card {
+        background-color: hsl(var(--card));
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+      
+      .button {
+        background-color: hsl(var(--primary));
+        color: hsl(var(--primary-foreground));
+        border: none;
+        border-radius: 4px;
+        padding: 8px 16px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.2s;
+      }
+      
+      .button:hover {
+        background-color: hsl(var(--primary) / 0.9);
+      }
+      
+      .api-section {
+        margin-top: 30px;
+      }
+      
+      pre {
+        background-color: hsl(var(--muted));
+        color: hsl(var(--muted-foreground));
+        padding: 15px;
+        border-radius: 4px;
+        overflow-x: auto;
+        font-size: 14px;
+      }
+      
+      .result {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>ReconcileAI Platform</h1>
+      
+      <div class="card">
+        <h2>Welcome to ReconcileAI</h2>
+        <p>A futuristic, AI-driven reconciliation SaaS platform that acts as a third-party facilitator for businesses and individuals to instantly reconcile payments across banks, payment processors, and marketplaces.</p>
+      </div>
+      
+      <div class="card api-section">
+        <h2>API Test</h2>
+        <p>Click the buttons below to test various API endpoints:</p>
+        
+        <div>
+          <button class="button" onclick="testAPI('/api/dashboard')">Test Dashboard API</button>
+          <div id="dashboard-result" class="result"></div>
+        </div>
+        
+        <div style="margin-top: 15px;">
+          <button class="button" onclick="testAPI('/api/transactions')">Test Transactions API</button>
+          <div id="transactions-result" class="result"></div>
+        </div>
+        
+        <div style="margin-top: 15px;">
+          <button class="button" onclick="testAPI('/api/integrations')">Test Integrations API</button>
+          <div id="integrations-result" class="result"></div>
+        </div>
+      </div>
+      
+      <div class="card">
+        <h2>Environment Information</h2>
+        <div id="env-info"></div>
+      </div>
+    </div>
+
+    <script>
+      // Display environment info
+      document.getElementById('env-info').innerHTML = `
+        <pre>
+URL: ${window.location.href}
+User Agent: ${navigator.userAgent}
+Date/Time: ${new Date().toLocaleString()}
+        </pre>
+      `;
+      
+      // Function to test API endpoints
+      async function testAPI(endpoint) {
+        const resultId = endpoint.split('/').pop() + '-result';
+        const resultElement = document.getElementById(resultId);
+        
+        resultElement.innerHTML = 'Loading...';
+        
+        try {
+          const response = await fetch(endpoint);
+          const data = await response.json();
+          
+          resultElement.innerHTML = `
+            <pre>Status: ${response.status} ${response.statusText}
+Data: ${JSON.stringify(data, null, 2).substring(0, 300)}${JSON.stringify(data, null, 2).length > 300 ? '...' : ''}</pre>
+          `;
+        } catch (error) {
+          resultElement.innerHTML = `<pre>Error: ${error.message}</pre>`;
+        }
+      }
+    </script>
+  </body>
+</html>

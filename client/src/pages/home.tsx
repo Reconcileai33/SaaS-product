@@ -112,7 +112,7 @@ export default function Home() {
                 <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-red-500/10 opacity-30"></div>
                 <img 
                   src="/attached_assets/Reconcile dashboard 1.PNG" 
-                  alt="PaySync Dashboard" 
+                  alt="ReconcileAI Dashboard" 
                   className="w-full h-auto rounded-lg object-cover"
                 />
               </div>
@@ -154,7 +154,7 @@ export default function Home() {
             <StatCard 
               title="Active Users" 
               value="2,500+" 
-              description="Businesses & individuals using PaySync"
+              description="Businesses & individuals using ReconcileAI"
               icon={<BarChart4 className="h-6 w-6 text-blue-500" />}
             />
           </motion.div>
@@ -243,7 +243,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              How <span className={gradientText}>PaySync</span> Works
+              How <span className={gradientText}>ReconcileAI</span> Works
             </h2>
             <p className="text-gray-400 text-lg">
               Our simple 3-step process makes reconciliation effortless
@@ -355,7 +355,7 @@ export default function Home() {
               Ready to Transform Your <span className={gradientText}>Reconciliation Process</span>?
             </h2>
             <p className="text-gray-300 text-lg mb-8 max-w-2xl mx-auto">
-              Join thousands of users who have simplified their financial reconciliation with PaySync.
+              Join thousands of users who have simplified their financial reconciliation with ReconcileAI.
             </p>
             
             <Link href="/auth">
